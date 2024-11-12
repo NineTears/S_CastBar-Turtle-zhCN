@@ -1,0 +1,9 @@
+## Interface: 11200
+## Title: S_CastBar
+## Notes: a simple CastBar.
+## Title-zhCN:S_CastBar 简单施法条
+## Notes-zhCN:鼠标可拖动施法条
+## Author: 1.12 modify by 狗血编剧男
+## Version: 1.0.0
+## Dependencies: !Libs
+S_CastBar.xml

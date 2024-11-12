@@ -1,0 +1,59 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xsi:schemaLocation="http://www.blizzard.com/wow/ui/"> 
+	<Script file="S_CastBar.lua"/>
+	<Frame name="CastingBarMove" movable="true" enableMouse="true" parent="UIParent" hidden="true">
+	   	<Size>
+			<AbsDimension x="215" y="33"/>
+		</Size>
+		<Anchors>
+			<Anchor point="BOTTOM" relativeTo="UIParent" relativePoint="BOTTOM">
+				<Offset>
+					<AbsDimension x="15" y="133"/>
+				</Offset>						
+			</Anchor>
+		</Anchors>
+        <Layers>
+          <Layer>
+            <FontString name="$parentText" inherits="GameFontNormal" text="施法条">
+				<Anchors>
+					<Anchor point="CENTER">
+						<Offset>
+							<AbsDimension x="0" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+            </FontString>
+          </Layer>
+        </Layers>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="2" right="2" top="2" bottom="2" />
+			</BackgroundInsets>		
+			<TileSize>
+				<AbsValue val="16"/>
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="16"/>
+			</EdgeSize>
+		</Backdrop>
+		<Scripts>
+			<OnLoad>
+				this:RegisterForDrag("LeftButton");
+				this:SetBackdropBorderColor(0, 1, 0);
+			</OnLoad>
+			<OnMouseUp>
+				if ( this.isMoving ) then
+					this:StopMovingOrSizing();
+					this.isMoving = false;
+				end
+			</OnMouseUp>
+			<OnDragStart>
+				this:StartMoving();
+				this.isMoving = true;
+			</OnDragStart>
+			<OnDragStop>
+				this:StopMovingOrSizing();
+				this.isMoving = false;
+			</OnDragStop>
+		</Scripts>
+	</Frame>
+</Ui>
